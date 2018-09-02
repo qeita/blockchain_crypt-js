@@ -1,0 +1,30 @@
+{
+  "name": "blockchain_crypt-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/qeita/blockchain_crypt-js.git",
+  "author": "qei <kei.yagi@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "flow": "flow",
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^9.0.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.22.0",
+    "flow-bin": "^0.80.0",
+    "flow-typed": "^2.5.1",
+    "jest": "^23.5.0"
+  },
+  "dependencies": {
+    "crypto-js": "^3.1.9-1"
+  }
+}

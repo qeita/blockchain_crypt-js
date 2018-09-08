@@ -1,8 +1,7 @@
-import SHA256 from 'crypto-js/sha256'
-
 // @flow
 
-const DIFFICULTY_TARGET = 255
+import SHA256 from 'crypto-js/sha256'
+import { DIFFICULTY_TARGET, MINING_DURATION } from '../config'
 
 class Block{
   timestamp: number
@@ -10,23 +9,26 @@ class Block{
   difficultyTarget: number
   nonce: number
   transactions: Array<any>
+  miningDuration: number
 
   constructor(
     timestamp: number,
     prevHash: string,
     difficultyTarget: number,
     nonce: number,
-    transactions: Array<any>
+    transactions: Array<any>,
+    miningDuration: number
   ){
     this.timestamp = timestamp
     this.prevHash = prevHash
     this.difficultyTarget = difficultyTarget
     this.nonce = nonce
     this.transactions = transactions
+    this.miningDuration = miningDuration
   }
 
   static genesis(): Block{
-    return new this(0, '0'.repeat(64), DIFFICULTY_TARGET, 0, [])
+    return new this(0, '0'.repeat(64), DIFFICULTY_TARGET, 0, [], MINING_DURATION)
   }
 
   hash(): string{
@@ -35,7 +37,8 @@ class Block{
       this.prevHash,
       this.difficultyTarget,
       this.nonce,
-      this.transactions
+      this.transactions,
+      this.miningDuration
     ])).toString()
   }
 
